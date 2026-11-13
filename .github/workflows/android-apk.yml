@@ -28,6 +28,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Check JavaScript syntax
+        run: node --check www/app.js && node --check www/exam-centre.js
+
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
