@@ -84,9 +84,39 @@
     </section>
     <section class="panel"><div class="section-head"><h2>My offline library</h2><button id="refresh" class="quiet">Refresh</button></div><p class="muted">Saved materials stay on this device and can be opened without internet.</p><div id="library" class="library"><p class="muted">No saved materials yet.</p></div></section>
   </section>
+
+  <section id="examCentreView" class="app-view" hidden>
+    <section class="hero compact-hero"><button class="back-button" data-back-home>← Student Home</button><p class="eyebrow">SMARTEDU EXAMINATION CENTRE</p><h1>Learn. Practise. Improve. Master.</h1><p>Every mock examination feeds into personal teaching and improvement. Choose your programme.</p></section>
+    <section class="panel"><h2>Choose your examination programme</h2><div id="programmeGrid" class="programme-grid"></div><p class="api-note">The examination engine is prepared. Official syllabuses, verified question banks, marking rules and saved attempts will be supplied by the live SmartEdu API.</p></section>
+  </section>
+  <section id="examSetupView" class="app-view" hidden>
+    <section class="hero compact-hero"><button class="back-button" data-back-home>← Student Home</button><p class="eyebrow">PERSONALISED PREPARATION</p><h1 id="setupTitle">Examination setup</h1><p id="setupDescription"></p></section>
+    <section class="panel"><label for="examSubject">Subject / skill</label><select id="examSubject"></select><label for="examTier">Learning level</label><select id="examTier"></select><label for="examMode">Learning activity</label><select id="examMode"><option value="diagnostic">Diagnostic mock — find my gaps</option><option value="practice">Guided practice</option><option value="timed">Timed examination</option></select><label for="examCount">Number of questions</label><select id="examCount"><option value="10">10 questions</option><option value="20">20 questions</option><option value="40">40 questions</option><option value="60">60 questions</option></select><button id="startExam" class="primary">Start learning session</button><p class="api-note">Demo questions are used only where available. Full examination sessions require the verified question-bank API.</p></section>
+  </section>
+  <section id="examRunView" class="app-view" hidden>
+    <section class="hero compact-hero"><button class="back-button" data-back-home>Exit to Student Home</button><p class="eyebrow" id="examRunTitle">Mock examination</p><div class="exam-topline"><h1 id="questionCount">Question 1</h1><strong id="examClock">10:00</strong></div><div class="progress-track"><span id="questionProgress"></span></div><p id="examRunNotice" class="exam-notice"></p></section>
+    <section class="panel"><span id="questionTopic" class="topic-chip">Topic</span><h2 id="questionText" class="question-text"></h2><div id="answerOptions" class="answer-options"></div><div class="exam-controls"><button id="prevQuestion" class="quiet">Previous</button><button id="nextQuestion" class="primary">Next question</button></div><button id="submitExam" class="submit-link">Submit examination</button></section>
+  </section>
+  <section id="examResultView" class="app-view" hidden>
+    <section class="hero compact-hero"><button class="back-button" data-back-home>Student Home</button><p class="eyebrow">YOUR LEARNING REPORT</p><h1 id="resultHeadline">Your report</h1><div class="score-display" id="resultScore">0%</div><p id="resultSummary"></p></section>
+    <section class="panel"><h2>Topics to strengthen</h2><ul id="weaknessList"></ul><button id="teachWeakness" class="primary">Teach me this from the beginning</button><button id="openWeaknesses" class="secondary full-button">View my improvement history</button></section>
+    <section class="panel"><h2>Answer breakdown</h2><div id="resultBreakdown"></div><button id="tryAgain" class="secondary">Practise this programme again</button></section>
+  </section>
+  <section id="masteryView" class="app-view" hidden>
+    <section class="hero compact-hero"><button class="back-button" data-back-home>← Student Home</button><p class="eyebrow">PERSONAL IMPROVEMENT RECORD</p><h1>My strengths &amp; weaknesses</h1><p>Use every attempt as a guide for what to learn next.</p></section>
+    <section class="panel"><div id="masteryContent"></div></section>
+  </section>
+  <section id="resultCheckerView" class="app-view" hidden>
+    <section class="hero compact-hero"><button class="back-button" data-back-home>← Student Home</button><p class="eyebrow">RESULT CHECKING</p><h1>Official result checker</h1><p>Use official examination-board channels. SmartEdu will not ask you to enter a PIN into an unverified form.</p></section>
+    <section class="panel"><h2>JAMB result services</h2><p>Continue to the official JAMB e-Facility portal to access available result services.</p><button id="checkJambResult" class="primary">Open official JAMB portal</button></section>
+    <section class="panel"><h2>WAEC result services</h2><p>Continue to WAEC Direct. Use a valid result-checking PIN and serial number where required.</p><button id="checkWaecResult" class="primary">Open official WAEC Direct</button></section>
+    <p class="api-note">Direct in-app result retrieval will be enabled only after an authorised result-checking provider/API is connected and verified.</p>
+  </section>
+
 </main>
 <footer>SmartEdu Nigeria · Bringing learning closer</footer>
 <script src="config.js"></script>
-<script src="app.js"></script>\n<script src="exam-centre.js"></script>
+<script src="app.js"></script>
+<script src="exam-centre.js"></script>
 </body>
 </html>
