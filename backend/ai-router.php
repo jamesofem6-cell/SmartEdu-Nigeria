@@ -19,7 +19,6 @@ function smartedu_provider_config(string $provider, string $task, string $track)
     $kind='FAST';
     if (in_array($task,['lecture_note','tutorial','assignment','assessment_rubric','marking_guide','student_feedback','teaching_guide','assessment'],true)) $kind='QUALITY';
     if (in_array($task,['summary','course_outline'],true)) $kind='LONG';
-    if (in_array($task,['explanation','quiz','revision','lesson_note','scheme','class_activity'],true)) $kind='FAST';
     if ($task==='assignment' && $track==='university') $kind='QUALITY';
     $model=smartedu_env($prefix.'_MODEL_'.$kind,$defaultModel);
     return ['provider'=>$provider,'key'=>$key,'base'=>rtrim($base,'/'),'model'=>$model];
@@ -54,6 +53,10 @@ function smartedu_generate_with_router(string $prompt,string $task,string $role,
     $primary=smartedu_env('SMARTEDU_AI_PROVIDER','gemini');
     if (!in_array($primary,['gemini','openai'],true)) $primary='gemini';
     $secondary=$primary==='gemini'?'openai':'gemini';
+    // Route by both the selected activity and the actual question/topic wording.
+    $queryText=strtolower($prompt.' '.$topic.' '.$extra);
+    if (preg_match('/\\b(analy[sz]e|evaluate|compare|derive|prove|case study|clinical|diagnos|legal argument|jurisprud|advanced|complex|critical appraisal|ielts writing)\\b/',$queryText)) $task='assignment';
+    if (strlen($prompt)>9000 || strlen($extra)>6000) $task='summary';
     $configs=[];
     $first=smartedu_provider_config($primary,$task,$track);
     if ($first) $configs[]=$first;
