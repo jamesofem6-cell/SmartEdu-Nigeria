@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#126b45"><title>SmartEdu Nigeria</title><link rel="stylesheet" href="style.css">
+</head><body>
+<header><div class="brand"><span class="mark">S</span><div><strong>SmartEdu Nigeria</strong><small>Powered by Yutendala</small></div></div><span id="net" class="status">Checking connection…</span></header>
+<main>
+<section class="hero"><p class="eyebrow">LEARN • TEACH • GROW</p><h1>Your Nigerian teaching and learning assistant.</h1><p>Create learning materials online and keep your saved resources available offline.</p></section>
+<section class="panel"><h2>Choose your workspace</h2><div class="roles"><button class="role selected" data-role="teacher">I'm a Teacher</button><button class="role" data-role="student">I'm a Student</button></div>
+<label for="level">Class / study level</label><select id="level"><option>Nursery / Early Years</option><option>Primary 1–6</option><option>JSS 1–3</option><option>SS 1–3</option><option>University</option></select>
+<label for="topic">Topic or course</label><input id="topic" placeholder="e.g. Photosynthesis or GST 101">
+<label for="task">What do you need?</label><select id="task"><option value="lesson_note">Lesson note / study guide</option><option value="scheme">Scheme of work</option><option value="quiz">Quiz and practice questions</option><option value="explanation">Explain a difficult topic</option><option value="revision">Revision pack</option><option value="summary">Summarise my notes</option></select>
+<label for="extra">Instructions or notes (optional)</label><textarea id="extra" rows="4" placeholder="Add learning objectives, course details or paste notes to summarise…"></textarea>
+<button id="generate" class="primary">Generate with AI (online)</button><p id="message" class="message" aria-live="polite">AI generation requires an internet connection.</p></section>
+<section class="panel"><div class="section-head"><h2>My offline library</h2><button id="refresh" class="quiet">Refresh</button></div><p class="muted">Saved materials stay on this device and can be opened without internet.</p><div id="library" class="library"><p class="muted">No saved materials yet.</p></div></section>
+</main><footer>SmartEdu Nigeria · Bringing learning closer</footer>
+<script src="config.js"></script><script src="app.js"></script></body></html>
