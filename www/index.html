@@ -1,17 +1,98 @@
 <!doctype html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#126b45"><title>SmartEdu Nigeria</title><link rel="stylesheet" href="style.css">
-</head><body>
-<header><div class="brand"><span class="mark">S</span><div><strong>SmartEdu Nigeria</strong><small>Powered by Yutendala</small></div></div><span id="net" class="status">Checking connection…</span></header>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#123b2b">
+<title>SmartEdu Nigeria</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="mark">S</span><div><strong>SmartEdu Nigeria</strong><small>Learning • Teaching • University Projects</small></div></div>
+  <span id="network" class="status">Checking connection</span>
+</header>
 <main>
-<section class="hero"><p class="eyebrow">LEARN • TEACH • GROW</p><h1>Your Nigerian teaching and learning assistant.</h1><p>Create learning materials online and keep your saved resources available offline.</p></section>
-<section class="panel"><h2>Choose your workspace</h2><div class="roles"><button class="role selected" data-role="teacher">I'm a Teacher</button><button class="role" data-role="student">I'm a Student</button></div>
-<label for="level">Class / study level</label><select id="level"><option>Nursery / Early Years</option><option>Primary 1–6</option><option>JSS 1–3</option><option>SS 1–3</option><option>University</option></select>
-<label for="topic">Topic or course</label><input id="topic" placeholder="e.g. Photosynthesis or GST 101">
-<label for="task">What do you need?</label><select id="task"><option value="lesson_note">Lesson note / study guide</option><option value="scheme">Scheme of work</option><option value="quiz">Quiz and practice questions</option><option value="explanation">Explain a difficult topic</option><option value="revision">Revision pack</option><option value="summary">Summarise my notes</option></select>
-<label for="extra">Instructions or notes (optional)</label><textarea id="extra" rows="4" placeholder="Add learning objectives, course details or paste notes to summarise…"></textarea>
-<button id="generate" class="primary">Generate with AI (online)</button><p id="message" class="message" aria-live="polite">AI generation requires an internet connection.</p></section>
-<section class="panel"><div class="section-head"><h2>My offline library</h2><button id="refresh" class="quiet">Refresh</button></div><p class="muted">Saved materials stay on this device and can be opened without internet.</p><div id="library" class="library"><p class="muted">No saved materials yet.</p></div></section>
-</main><footer>SmartEdu Nigeria · Bringing learning closer</footer>
-<script src="config.js"></script><script src="app.js"></script></body></html>
+  <section id="login-screen" class="panel">
+    <p class="eyebrow">WELCOME BACK</p>
+    <h1>Sign in to SmartEdu</h1>
+    <p class="muted">Use your existing SmartEdu website account. You do not need to register again.</p>
+    <form id="login-form">
+      <label for="role">Account type</label>
+      <select id="role" required><option value="student">Student</option><option value="teacher">Teacher</option></select>
+      <label for="email">Email address</label>
+      <input id="email" type="email" autocomplete="username" required placeholder="Your registered email">
+      <label for="password">Password</label>
+      <input id="password" type="password" autocomplete="current-password" required placeholder="Your password">
+      <button id="login-button" class="primary" type="submit">Sign in</button>
+      <p id="login-message" class="message" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <section id="app-screen" hidden>
+    <section class="welcome panel">
+      <div><p class="eyebrow">SMARTEDU WORKSPACE</p><h1 id="welcome-name">Welcome</h1><p id="profile-line" class="muted"></p></div>
+      <button id="logout-button" class="quiet" type="button">Sign out</button>
+    </section>
+
+    <nav id="student-nav" class="tabs" hidden>
+      <button class="tab active" data-view="overview">Overview</button>
+      <button class="tab" data-view="projects">My projects</button>
+    </nav>
+    <nav id="teacher-nav" class="tabs" hidden>
+      <button class="tab active" data-view="overview">Overview</button>
+    </nav>
+
+    <section id="overview-view" class="view">
+      <div class="stats">
+        <article class="stat"><span id="stat-one-label">Projects</span><strong id="stat-one">0</strong></article>
+        <article class="stat"><span id="stat-two-label">Completed</span><strong id="stat-two">0</strong></article>
+        <article class="stat"><span id="stat-three-label">Completed chapters</span><strong id="stat-three">0</strong></article>
+      </div>
+      <div class="panel">
+        <h2 id="overview-title">Your learning dashboard</h2>
+        <p id="overview-message" class="muted">Your SmartEdu information will appear here.</p>
+      </div>
+    </section>
+
+    <section id="projects-view" class="view" hidden>
+      <div class="section-heading"><div><p class="eyebrow">UNIVERSITY PROJECT SUPPORT</p><h2>My projects</h2></div><button id="reload-projects" class="quiet" type="button">Refresh</button></div>
+      <div id="projects-list"></div>
+      <p id="projects-message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section id="workspace-view" class="view" hidden>
+      <button id="back-projects" class="quiet" type="button">← Back to projects</button>
+      <div class="panel">
+        <p class="eyebrow">PROJECT WORKSPACE</p>
+        <h2 id="workspace-title">Project</h2>
+        <p id="workspace-meta" class="muted"></p>
+      </div>
+      <div class="panel">
+        <h2>Project chapters</h2>
+        <label for="chapter-select">Choose a chapter</label>
+        <select id="chapter-select"></select>
+        <label for="chapter-content">Your chapter draft</label>
+        <textarea id="chapter-content" rows="12" placeholder="Your saved chapter draft will appear here."></textarea>
+        <label for="chapter-status">Chapter progress</label>
+        <select id="chapter-status">
+          <option value="not_started">Not started</option>
+          <option value="in_progress">In progress</option>
+          <option value="completed">Completed</option>
+        </select>
+        <button id="save-chapter" class="primary" type="button">Save chapter draft</button>
+        <p id="chapter-message" class="message" aria-live="polite"></p>
+      </div>
+      <div class="panel">
+        <h2>Research preparation</h2>
+        <p class="muted">Your preliminary literature review, research questions, objectives and methodology remain in the University Project Support workspace.</p>
+        <p id="preparation-status" class="message"></p>
+      </div>
+    </section>
+  </section>
+</main>
+<footer>SmartEdu Nigeria · Bringing learning closer</footer>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
