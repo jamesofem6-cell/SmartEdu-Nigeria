@@ -20,14 +20,14 @@
       <h1>Welcome to SmartEdu</h1>
       <p class="muted">Sign in to continue to your learning workspace.</p>
       <form id="loginForm">
-        <label for="email">Email address</label>
+        <label for="accountType">Sign in as</label><select id="accountType"><option value="student">Student</option><option value="teacher">Teacher / Lecturer</option></select><label for="email">Email address</label>
         <input id="email" type="email" autocomplete="username" placeholder="Enter your email" required>
         <label for="password">Password</label>
         <input id="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
-        <button id="loginButton" class="primary" type="submit">Sign In as Student</button>
+        <button id="loginButton" class="primary" type="submit">Sign In</button>
       </form>
       <p id="loginMessage" class="message" aria-live="polite"></p>
-      <p class="auth-links">Teacher? <a href="https://smartedu.yutendala.ng/teacher-login.php">Open Teacher Portal</a></p>
+      <p class="auth-links">Teachers and university lecturers can sign in here using their teacher account.</p>
     </div>
   </section>
 
@@ -63,6 +63,28 @@
       <p><strong>Email:</strong> <span id="accountEmail"></span></p>
       <p><strong>Account type:</strong> Student</p>
     </section>
+  </section>
+
+
+  <section id="teacherHome" hidden>
+    <section class="hero"><p class="eyebrow">TEACHER &amp; LECTURER WORKSPACE</p><h1 id="teacherWelcome">Welcome!</h1><p>Prepare teaching materials, support learners and organise your teaching activities.</p></section>
+    <section class="panel">
+      <h2>Choose your teaching environment</h2>
+      <label for="teacherTrack">I teach at</label>
+      <select id="teacherTrack"><option value="school">Nursery, Primary or Secondary School</option><option value="university">University / Tertiary Institution</option></select>
+      <label for="teacherLevel">Class / course level</label>
+      <input id="teacherLevel" placeholder="e.g. JSS 2, SS 3, 200 Level, GST 101">
+      <label for="teacherTopic">Subject / course / topic</label>
+      <input id="teacherTopic" placeholder="e.g. Basic Science, Biology, GST 101">
+      <label for="teacherTask">What would you like to prepare?</label>
+      <select id="teacherTask"></select>
+      <label for="teacherExtra">Teaching instructions or source material (optional)</label>
+      <textarea id="teacherExtra" rows="5" placeholder="Add curriculum details, learning outcomes, duration, class size or paste material to work with…"></textarea>
+      <button id="teacherGenerate" class="primary">Generate teaching material</button>
+      <p id="teacherMessage" class="message" aria-live="polite">Your teaching materials will be generated using the SmartEdu AI service.</p>
+    </section>
+    <section class="panel"><div class="section-head"><h2>My saved teaching materials</h2><button id="teacherRefresh" class="quiet">Refresh</button></div><div id="teacherLibrary" class="library"><p class="muted">No saved materials yet.</p></div></section>
+    <section class="panel account-panel"><div class="section-head"><h2>Teacher account</h2><button id="teacherLogout" class="quiet">Logout</button></div><p><strong>Name:</strong> <span id="teacherAccountName"></span></p><p><strong>Email:</strong> <span id="teacherAccountEmail"></span></p></section>
   </section>
 
   <section id="assistantView" hidden>
