@@ -160,7 +160,10 @@ $("generate").addEventListener("click", async () => {
   try {
     const response = await fetch(window.SMARTEDU_API_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer " + (localStorage.getItem(TOKEN_KEY) || "")
+        },
       body: JSON.stringify({
         action: "generate",
         role: "student",
