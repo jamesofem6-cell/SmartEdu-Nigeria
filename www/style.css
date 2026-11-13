@@ -26,3 +26,21 @@
 .back-button{border:1px solid #ffffff88;background:#ffffff18;color:white;padding:9px 12px;border-radius:8px;margin-bottom:12px;font-weight:700}
 .section-head{display:flex;align-items:center;justify-content:space-between;gap:12px}
 @media(max-width:420px){.auth-card{padding:21px}.home-grid{grid-template-columns:1fr 1fr}.home-card{padding:13px}.home-card h3{font-size:15px}.home-card p{font-size:12px}}
+
+
+/* Integrated examination and AI mastery centre */
+.programme-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.programme-card{display:flex;flex-direction:column;align-items:flex-start;text-align:left;gap:8px;padding:17px;border:1px solid #dce8e0;border-radius:14px;background:#fff;color:#17352a;min-height:160px}
+.programme-card:active,.answer-option.chosen{border-color:#126b45;background:#eaf5ee}
+.programme-icon{font-size:28px}.programme-card strong{font-size:16px;color:#174b9b}.programme-card span:not(.programme-icon){font-size:12px;line-height:1.45;color:#607469}.programme-card small{margin-top:auto;color:#16834f;font-weight:700}
+.api-note{padding:12px;border-radius:10px;background:#f1f5f2;color:#62766a;font-size:12px;line-height:1.5;margin-top:16px}
+.app-view .panel{max-width:900px;margin-left:auto;margin-right:auto}
+.exam-topline{display:flex;justify-content:space-between;align-items:center;gap:12px}.exam-topline h1{font-size:23px}.exam-topline strong{font-size:21px;font-variant-numeric:tabular-nums;background:#fff;color:#174b9b;padding:8px 12px;border-radius:10px}
+.progress-track{height:7px;background:#ffffff55;border-radius:99px;overflow:hidden}.progress-track span{display:block;height:100%;width:0;background:#f5bd48;transition:width .2s}
+.exam-notice{font-size:11px;background:#ffffff18;padding:8px;border-radius:8px}
+.topic-chip{display:inline-block;padding:6px 9px;border-radius:99px;background:#eaf2ff;color:#174b9b;font-size:11px;font-weight:750}
+.question-text{font-size:21px;line-height:1.4;margin:17px 0}
+.answer-options{display:grid;gap:10px}.answer-option{display:flex;align-items:center;gap:12px;text-align:left;padding:14px;border:1px solid #dce8e0;background:#fff;border-radius:12px;color:#17352a;font:inherit;line-height:1.4}.answer-option span{display:grid;place-items:center;flex:0 0 30px;height:30px;border-radius:50%;background:#edf3ef;color:#126b45;font-weight:800}.answer-option.chosen{border:2px solid #126b45;background:#eff8f1}.exam-controls{display:flex;gap:10px;margin-top:20px}.exam-controls>*{flex:1}.exam-controls .primary{margin-top:0}.submit-link{display:block;margin:18px auto 0;border:0;background:transparent;color:#a33d35;text-decoration:underline;padding:8px;font-weight:700}
+.score-display{font-size:42px;font-weight:850;margin:8px 0}.good-text{color:#16834f;font-weight:700}.bad-text{color:#b34c42;font-weight:700}
+.review-item{padding:13px 0;border-bottom:1px solid #e5ece7}.review-item p{font-size:13px;line-height:1.5}.mastery-row{padding:14px;border:1px solid #e0eae3;border-radius:12px;margin:10px 0;display:grid;grid-template-columns:1fr auto;gap:6px}.mastery-row small,.mastery-row p{grid-column:1/-1;color:#6c7d73;font-size:12px}.mastery-row b{color:#126b45}.full-button{width:100%;margin-top:10px;padding:12px;border:0;border-radius:9px}
+@media(max-width:520px){.programme-grid{grid-template-columns:1fr 1fr}.programme-card{min-height:178px;padding:13px}.programme-card strong{font-size:14px}.question-text{font-size:18px}.exam-topline h1{font-size:19px}}
