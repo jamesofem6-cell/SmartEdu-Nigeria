@@ -44,3 +44,11 @@
 .score-display{font-size:42px;font-weight:850;margin:8px 0}.good-text{color:#16834f;font-weight:700}.bad-text{color:#b34c42;font-weight:700}
 .review-item{padding:13px 0;border-bottom:1px solid #e5ece7}.review-item p{font-size:13px;line-height:1.5}.mastery-row{padding:14px;border:1px solid #e0eae3;border-radius:12px;margin:10px 0;display:grid;grid-template-columns:1fr auto;gap:6px}.mastery-row small,.mastery-row p{grid-column:1/-1;color:#6c7d73;font-size:12px}.mastery-row b{color:#126b45}.full-button{width:100%;margin-top:10px;padding:12px;border:0;border-radius:9px}
 @media(max-width:520px){.programme-grid{grid-template-columns:1fr 1fr}.programme-card{min-height:178px;padding:13px}.programme-card strong{font-size:14px}.question-text{font-size:18px}.exam-topline h1{font-size:19px}}
+
+/* Teacher and university lecturer workspace */
+#teacherHome .panel{max-width:900px;margin-left:auto;margin-right:auto}
+#teacherHome .hero{background:#174b9b}
+#teacherHome .library-item{background:#fff}
+#teacherHome .section-head{flex-wrap:wrap}
+#teacherTrack,#teacherTask,#teacherLevel,#teacherTopic,#teacherExtra{margin-bottom:5px}
+@media(max-width:520px){#teacherHome .panel{margin:12px;padding:16px}}
