@@ -167,7 +167,7 @@ try {
         . "\n\nUse clear, supportive language and Nigerian/British English where appropriate. Do not claim invented questions are verified past questions. Do not invent facts, data, references or citations.";
 
     // The deployed ai-router.php currently accepts prompt and task.
-    $result = smartedu_generate_with_router($fullPrompt, $task);
+    $result = smartedu_generate_with_router($fullPrompt, $task, $role, $track, $topic, $extra);
 
     if (!is_array($result) || empty($result['success']) || empty($result['content'])) {
         // Some deployed router versions return content/provider/model without a success flag.
