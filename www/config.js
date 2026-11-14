@@ -1,2 +1,3 @@
-// Set this to the HTTPS URL where backend/api.php is deployed.
-window.SMARTEDU_API_URL = "https://smartedu.yutendala.ng/api.php";
+// SmartEdu API endpoints
+// Main AI endpoint is deployed inside the /api/ folder.
+window.SMARTEDU_API_URL = "https://smartedu.yutendala.ng/api/api.php";
